@@ -1,0 +1,14 @@
+Checks:
+    modernize-*,
+    portability-*,
+    cppcoreguidelines-*,
+    -readability-magic-numbers,
+    -cppcoreguidelines-avoid-magic-numbers,
+    -cppcoreguidelines-owning-memory,
+    -cppcoreguidelines-pro-type-static-cast-downcast,
+    -cppcoreguidelines-non-private-member-variables-in-classes,
+    -cppcoreguidelines-special-member-functions,
+    -modernize-use-trailing-return-type,
+    -modernize-pass-by-value,
+    -modernize-use-nodiscard
+

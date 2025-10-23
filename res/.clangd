@@ -1,0 +1,31 @@
+# CompileFlags:
+#   Add: /std:c++23
+#   Compiler: clang-cl
+
+# ---
+
+If:
+  PathMatch: .*\.h
+CompileFlags:
+  Add: [/std:c++20]
+  # Add: [/std:c++2b]
+  # Compiler: clang
+# Diagnostics:
+#   Suppress: "*"
+
+---
+
+Completion:
+  AllScopes: No
+  # ArgumentLists: FullPlaceholders
+  ArgumentLists: Delimiters
+
+# https://clangd.llvm.org/config#inlayhints
+InlayHints:
+  BlockEnd: No
+  Designators: No
+  Enabled: No
+  ParameterNames: No
+  DeducedTypes: No
+  DefaultArguments: No
+  TypeNameLimit: 24

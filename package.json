@@ -3,7 +3,7 @@
   "displayName": "Cpp Refactor/Generator",
   "description": "code generator/refactor tools for c/c++",
   "publisher": "Zen Shawn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "url": "https://github.com/xiaodaxia-2008/zpp"
   },
@@ -21,16 +21,20 @@
       {
         "command": "zpp.createCppFile",
         "title": "Zpp: Create C++ Source File from Header File"
+      },
+      {
+        "command": "zpp.setupCppProject",
+        "title": "Zpp: Setup .clangd .clang-format .clang-tidy .gitignore etc"
       }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "copy-res": "node -e \"require('fs').cpSync('res', 'out/res', {recursive: true});\""
   },
   "devDependencies": {
     "@types/vscode": "^1.105.0",

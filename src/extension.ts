@@ -133,7 +133,76 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const setupProjectDisposable = vscode.commands.registerCommand(
+    "zpp.setupCppProject",
+    async () => {
+      const workspaceFolders = vscode.workspace.workspaceFolders;
+      if (!workspaceFolders) {
+        vscode.window.showErrorMessage("No workspace folder is open");
+        return;
+      }
+
+      const rootPath = workspaceFolders[0].uri.fsPath;
+      
+      // Try to find res directory - could be in extension root or in out directory after packaging
+      let resPath = path.join(context.extensionPath, "res");
+      if (!fs.existsSync(resPath)) {
+        resPath = path.join(context.extensionPath, "out", "res");
+      }
+
+      // If still not found, try relative path for development
+      if (!fs.existsSync(resPath)) {
+        resPath = path.join(__dirname, "..", "res");
+      }
+
+      if (!fs.existsSync(resPath)) {
+        vscode.window.showErrorMessage("Resource files not found");
+        return;
+      }
+
+      try {
+        // Copy all configuration files from res to project root
+        const filesToCopy = [
+          ".clang-format",
+          ".clang-tidy",
+          ".clangd",
+          ".gitignore"
+        ];
+
+        for (const file of filesToCopy) {
+          const sourcePath = path.join(resPath, file);
+          const targetPath = path.join(rootPath, file);
+
+          // Check if file already exists
+          if (fs.existsSync(targetPath)) {
+            const overwrite = await vscode.window.showWarningMessage(
+              `${file} already exists in project root. Overwrite?`,
+              "Yes",
+              "No"
+            );
+            
+            if (overwrite !== "Yes") {
+              continue;
+            }
+          }
+
+          // Copy file
+          fs.copyFileSync(sourcePath, targetPath);
+        }
+
+        vscode.window.showInformationMessage(
+          "C++ project setup completed successfully!"
+        );
+      } catch (error) {
+        vscode.window.showErrorMessage(
+          `Failed to setup C++ project: ${error}`
+        );
+      }
+    }
+  );
+
   context.subscriptions.push(disposable);
+  context.subscriptions.push(setupProjectDisposable);
 }
 
 export function deactivate() {}

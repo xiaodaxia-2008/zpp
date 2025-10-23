@@ -1,0 +1,70 @@
+/PyFiberArt.pyi
+.gitattributes
+.ipynb_checkpoints
+pixi.lock
+pixi.toml
+.venv/
+*.spec
+.learn
+temp/
+temp.py
+CMakeLists.txt.user
+FiberArtBuild/
+BuildFiberArt/
+Docs/FiberArtUserGuide/
+CMakeSettings.json
+out/
+__pycache__/
+build/
+build-release/
+Build/
+Build*/
+.build
+.pixi
+.cache/
+.vs
+.vscode
+*.log
+core
+.qt_for_python
+
+# Prerequisites
+*.d
+CMakeUserPresets.json
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+build/
+Build/
+
+# pixi environments
+.pixi
+*.egg-info
