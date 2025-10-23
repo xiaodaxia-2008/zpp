@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "cpprefactor.createSource",
-        "title": "Create C++ Source File from Header File"
+        "command": "cpprefactor.createCppFile",
+        "title": "CppRefactor: Create C++ Source File from Header File"
       }
     ]
   },
