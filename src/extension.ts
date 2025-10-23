@@ -53,7 +53,7 @@ export function makeIncludeLine(headerPath: string, cppPath: string): string {
 
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
-    "cpprefactor.createCppFile",
+    "zpp.createCppFile",
     async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) {

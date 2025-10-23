@@ -1,8 +1,11 @@
 {
-  "name": "cpprefactor",
-  "displayName": "CppRefactor",
-  "description": "Some code generator / refactor tools for c/c++",
+  "name": "zpp",
+  "displayName": "Cpp Refactor/Generator",
+  "description": "code generator/refactor tools for c/c++",
   "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/xiaodaxia-2008/zpp"
+  },
   "engines": {
     "vscode": "^1.105.0"
   },
@@ -14,8 +17,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "cpprefactor.createCppFile",
-        "title": "CppRefactor: Create C++ Source File from Header File"
+        "command": "zpp.createCppFile",
+        "title": "Zpp: Create C++ Source File from Header File"
       }
     ]
   },
