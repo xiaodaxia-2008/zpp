@@ -2,6 +2,7 @@
   "name": "zpp",
   "displayName": "Cpp Refactor/Generator",
   "description": "code generator/refactor tools for c/c++",
+  "publisher": "Zen Shawn",
   "version": "0.0.1",
   "repository": {
     "url": "https://github.com/xiaodaxia-2008/zpp"
